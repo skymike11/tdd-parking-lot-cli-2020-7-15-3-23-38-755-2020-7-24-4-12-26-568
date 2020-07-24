@@ -1,12 +1,15 @@
 package com.oocl.cultivation;
 
+
 public class ParkingBoy {
+
+    private ParkingLot parkingLot;
 
     public Ticket parking (Car car) {
         return new Ticket(car.getCarId(), "");
     }
 
-    public Car fetching (Ticket ticket) {
-        return new Car("A001");
+    public String fetching (Ticket ticket) {
+        return "A001";
     }
 }
