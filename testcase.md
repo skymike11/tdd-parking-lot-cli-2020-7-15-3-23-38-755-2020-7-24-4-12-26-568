@@ -71,4 +71,13 @@
      parking boy parking
  **then**
     return no position tips
+    
+    
+ #### Story3
+ **given**
+    1 car, 1 parking boy, 1 full parkinglot, 1 unfull parkinglot
+ **when**
+     parking boy parking
+ **then**
+    return ticket 
      
