@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
     @Test
-    void should_return_ticket_when_parking_car_given_car_and_parkingboy() {
+    void should_return_ticket_when_parking_car_given_car() {
         //given
         String carId = "A001";
         Car car = new Car(carId);
@@ -29,10 +29,10 @@ class ParkingBoyFacts {
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy();
-        Car car = parkingBoy.fetching(ticket);
+        String carId = parkingBoy.fetching(ticket);
 
         //then
-        assertEquals(car.getCarId(), "A001");
+        assertEquals(carId, "A001");
     }
 
 
