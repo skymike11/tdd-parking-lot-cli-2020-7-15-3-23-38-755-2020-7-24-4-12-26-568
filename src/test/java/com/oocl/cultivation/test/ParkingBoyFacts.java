@@ -7,6 +7,7 @@ import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ParkingBoyFacts {
     @Test
@@ -47,4 +48,17 @@ class ParkingBoyFacts {
 
         assertEquals(ParkingTips.WRONG_TICKET, result);
     }
+
+    @Test
+    void should_return_null_when_parking_car_without_position_given_car() {
+        //given
+        Car car = new Car("A011");
+
+        //when
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket result = parkingBoy.parking(car);
+
+        assertNull(result);
+    }
+
 }
