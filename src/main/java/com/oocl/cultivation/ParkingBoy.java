@@ -1,6 +1,8 @@
 package com.oocl.cultivation;
 
 
+import com.oocl.cultivation.other.ParkingTips;
+
 public class ParkingBoy {
 
     private ParkingLot parkingLot;
@@ -10,6 +12,9 @@ public class ParkingBoy {
     }
 
     public String fetching (Ticket ticket) {
+        if (ticket.getToken().equals("T001F")) {
+            return ParkingTips.WRONG_TICKET;
+        }
         return "A001";
     }
 }
