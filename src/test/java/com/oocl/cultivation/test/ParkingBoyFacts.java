@@ -40,12 +40,13 @@ class ParkingBoyFacts {
     @Test
     void should_return_unrecognized_ticket_tip_when_fetching_car_given_used_ticket() {
         //given
-        Ticket ticket = new Ticket("A003", "T001F");
+        Ticket ticket = new Ticket("A100", "T100");
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy();
         String result = parkingBoy.fetching(ticket);
 
+        //then
         assertEquals(ParkingTips.UNRECOGNIZED_TICKET, result);
     }
 

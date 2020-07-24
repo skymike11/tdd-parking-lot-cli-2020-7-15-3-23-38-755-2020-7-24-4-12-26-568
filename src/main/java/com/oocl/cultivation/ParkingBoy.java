@@ -22,9 +22,10 @@ public class ParkingBoy {
     }
 
     public String fetching(Ticket ticket) {
-        if (isNullTicket(ticket)) {
+        if (isNullTicket(ticket) || isUsedTicket(ticket)) {
             return ParkingTips.UNRECOGNIZED_TICKET;
         }
+
         boolean isExistTicket = parkingLot.getTickets().stream().anyMatch(
                 item -> item.getToken().equals(ticket.getToken()));
         if (!isExistTicket) {
@@ -33,7 +34,11 @@ public class ParkingBoy {
         return parkingLot.getCars().get(ticket.getToken()).getCarId();
     }
 
-    public boolean isNullTicket(Ticket ticket) {
+    private boolean isNullTicket(Ticket ticket) {
         return ticket == null;
+    }
+
+    private boolean isUsedTicket(Ticket ticket) {
+        return parkingLot.getHistoryTickets().contains(ticket);
     }
 }

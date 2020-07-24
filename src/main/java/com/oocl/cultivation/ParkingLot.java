@@ -1,9 +1,6 @@
 package com.oocl.cultivation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ParkingLot {
 
@@ -11,9 +8,12 @@ public class ParkingLot {
 
     private List<Ticket> tickets;
 
+    private Set<Ticket> historyTickets;
+
     public ParkingLot() {
         cars = new HashMap<>();
         tickets = new ArrayList<>();
+        historyTickets = new HashSet<>();
         initParkingLotData();
     }
 
@@ -25,8 +25,11 @@ public class ParkingLot {
         return tickets;
     }
 
+    public Set<Ticket> getHistoryTickets() {
+        return historyTickets;
+    }
+
     private void initParkingLotData() {
-        Map<String, Car> cars = new HashMap<>();
         cars.put("T001", new Car("A001"));
         cars.put("T002", new Car("A002"));
         cars.put("T003", new Car("A003"));
@@ -38,7 +41,6 @@ public class ParkingLot {
         cars.put("T009", new Car("A009"));
         cars.put("T0010", new Car("A010"));
 
-        List<Ticket> tickets = new ArrayList<>();
         tickets.add(new Ticket("A001", "T001"));
         tickets.add(new Ticket("A002", "T002"));
         tickets.add(new Ticket("A003", "T003"));
@@ -50,7 +52,6 @@ public class ParkingLot {
         tickets.add(new Ticket("A009", "T009"));
         tickets.add(new Ticket("A010", "T0010"));
 
-        this.cars = cars;
-        this.tickets = tickets;
+        historyTickets.add(new Ticket("A100", "T100"));
     }
 }
