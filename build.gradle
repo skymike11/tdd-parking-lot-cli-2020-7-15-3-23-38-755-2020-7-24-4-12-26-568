@@ -3,6 +3,12 @@ plugins {
     id 'jacoco'
 }
 
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public"
+    }
+}
+
 group 'com.oocl.cultivation'
 version '1.0-SNAPSHOT'
 
