@@ -2,7 +2,11 @@ package com.oocl.cultivation;
 
 public class ParkingBoy {
 
-    public String parking (Car car) {
-        return "A001";
+    public Ticket parking (Car car) {
+        return new Ticket(car.getCarId(), "");
+    }
+
+    public Car fetching (String ticket) {
+        return null;
     }
 }
