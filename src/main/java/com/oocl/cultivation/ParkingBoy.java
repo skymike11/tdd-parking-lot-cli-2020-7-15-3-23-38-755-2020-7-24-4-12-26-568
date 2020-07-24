@@ -15,6 +15,9 @@ public class ParkingBoy {
     }
 
     public Ticket parking(Car car) {
+        if (parkingLot.getTickets().size() >= 10 ) {
+            return null;
+        }
         return new Ticket(car.getCarId(), "T001");
     }
 
