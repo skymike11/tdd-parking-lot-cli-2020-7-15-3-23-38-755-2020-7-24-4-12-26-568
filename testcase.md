@@ -80,4 +80,11 @@
      parking boy parking
  **then**
     return ticket 
-     
+ 
+  #### Story4
+  **given**
+     1 car, 1 parking boy, 1 full parkinglot, 1 unfull parkinglot
+  **when**
+      parking boy parking
+  **then**
+     return ticket 

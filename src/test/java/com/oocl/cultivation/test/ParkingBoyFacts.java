@@ -112,14 +112,14 @@ class ParkingBoyFacts {
         assertEquals(ticket.getToken(), "T001");
     }
 
-    public List<ParkingLot> initTestData() {
+    private List<ParkingLot> initTestData() {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
         parkingLots.add(new ParkingLot(new HashMap<>(), new ArrayList<>(), new HashSet<>()));
         return parkingLots;
     }
 
-    public List<ParkingLot> init2FullParkinglotTestData() {
+    private List<ParkingLot> init2FullParkinglotTestData() {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
         parkingLots.add(new ParkingLot());
