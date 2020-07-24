@@ -12,6 +12,6 @@ public class Ticket {
     }
 
     public String getToken() {
-        return "T001";
+        return token;
     }
 }

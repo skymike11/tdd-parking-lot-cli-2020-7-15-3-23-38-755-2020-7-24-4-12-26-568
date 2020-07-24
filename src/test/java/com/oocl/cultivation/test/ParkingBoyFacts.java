@@ -39,7 +39,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_wrong_ticket_tip_when_fetching_car_given_wrong_ticket() {
         //given
-        Ticket ticket = new Ticket("A001", "T001F");
+        Ticket ticket = new Ticket("A003", "T001F");
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy();
