@@ -20,7 +20,14 @@ public class ParkingBoy {
             System.out.print(NO_POSITION);
             return null;
         }
-        return new Ticket(car.getCarId(), "T001");
+        Ticket ticket = new Ticket(car.getCarId(), "T001");
+        int index = getMinCarsParkingLot();
+        ParkingLot parkingLot = parkingLots.get(index);
+        parkingLot.getTickets().add(ticket);
+        parkingLot.getCars().put(ticket.getToken(), car);
+
+        parkingLots.set(index, parkingLot);
+        return ticket;
     }
 
     public String fetching(Ticket ticket) {
@@ -52,5 +59,20 @@ public class ParkingBoy {
 
     private boolean isExistedPosition() {
         return parkingLots.stream().anyMatch(parkingLot -> parkingLot.getTickets().size() < 10);
+    }
+
+    public List<ParkingLot> getParkingLots() {
+        return parkingLots;
+    }
+
+    public int getMinCarsParkingLot () {
+        int min = 0;
+        int index = 0;
+        for (int i = 0; i < parkingLots.size(); i++) {
+            if (parkingLots.get(i).getTickets().size() <= min) {
+                index = i;
+            }
+        }
+        return index;
     }
 }

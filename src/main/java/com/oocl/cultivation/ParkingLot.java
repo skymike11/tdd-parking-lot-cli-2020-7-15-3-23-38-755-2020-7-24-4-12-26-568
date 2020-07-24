@@ -35,6 +35,14 @@ public class ParkingLot {
         return historyTickets;
     }
 
+    public void setCars(Map<String, Car> cars) {
+        this.cars = cars;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
     private void initParkingLotData() {
         cars.put("T001", new Car("A001"));
         cars.put("T002", new Car("A002"));
