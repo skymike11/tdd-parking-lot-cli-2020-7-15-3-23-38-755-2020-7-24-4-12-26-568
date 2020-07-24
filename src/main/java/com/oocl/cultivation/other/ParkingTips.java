@@ -8,4 +8,6 @@ public class ParkingTips {
 
     public static final String WRONG_TICKET = "You ticket is wrong" ;
 
+    public static final String UNRECOGNIZED_TICKET = "Unrecognized parking ticket.";
+
 }

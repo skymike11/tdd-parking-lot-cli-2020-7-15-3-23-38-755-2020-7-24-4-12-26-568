@@ -61,4 +61,15 @@ class ParkingBoyFacts {
         assertNull(result);
     }
 
+    @Test
+    void should_return_unrecognized_ticket_tip_when_fetching_car_given_not_ticket() {
+        //given
+        Ticket ticket = null;
+
+        //when
+        ParkingBoy parkingBoy = new ParkingBoy();
+        String result = parkingBoy.fetching(ticket);
+
+        assertEquals(ParkingTips.UNRECOGNIZED_TICKET, result);
+    }
 }

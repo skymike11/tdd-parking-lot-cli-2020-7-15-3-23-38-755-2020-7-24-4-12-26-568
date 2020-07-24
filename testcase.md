@@ -1,3 +1,4 @@
+#### Story 1
 **given**
    1 car ,1 parking boy
  **when**
@@ -41,7 +42,28 @@
  **then**
     return ticket used tips
 
+ **given**
+    1 car, 1 parking boy
+ **when**
+     parking boy parking
+ **then**
+    return null ticket
 
+
+#### Story2
+ **given**
+    1 used ticket, parking boy
+ **when**
+     parking boy fetching
+ **then**
+    return Unrecognized tips
+    
+ **given**
+     null ticket, parking boy
+ **when**
+      parking boy fetching
+ **then**
+     return please provide tips
 
  **given**
     1 car, 1 parking boy
@@ -49,4 +71,4 @@
      parking boy parking
  **then**
     return no position tips
-
+     
