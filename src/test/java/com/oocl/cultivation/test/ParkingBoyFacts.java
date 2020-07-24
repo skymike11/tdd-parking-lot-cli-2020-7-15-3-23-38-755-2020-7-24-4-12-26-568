@@ -32,7 +32,7 @@ class ParkingBoyFacts {
         Car car = parkingBoy.fetching(ticket);
 
         //then
-        assertEquals(car.getCarId(), "T001");
+        assertEquals(car.getCarId(), "A001");
     }
 
 
