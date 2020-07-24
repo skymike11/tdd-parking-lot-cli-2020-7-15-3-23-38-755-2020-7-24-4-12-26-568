@@ -3,6 +3,7 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.Ticket;
+import com.oocl.cultivation.other.ParkingTips;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +20,7 @@ class ParkingBoyFacts {
         Ticket ticket = parkingBoy.parking(car);
 
         //then
-        assertEquals(ticket.getToken(), "T001");
+        assertEquals(ticket.getToken(), "T001F");
     }
 
     @Test
@@ -35,5 +36,15 @@ class ParkingBoyFacts {
         assertEquals(carId, "A001");
     }
 
+    @Test
+    void should_return_wrong_ticket_tip_when_fetching_car_given_wrong_ticket() {
+        //given
+        Ticket ticket = new Ticket("A001", "T001F");
 
+        //when
+        ParkingBoy parkingBoy = new ParkingBoy();
+        String result = parkingBoy.fetching(ticket);
+
+        assertEquals(result, ParkingTips.WRONG_TICKET);
+    }
 }
