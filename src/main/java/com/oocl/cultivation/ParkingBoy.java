@@ -6,6 +6,8 @@ import com.oocl.cultivation.other.ParkingTips;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.oocl.cultivation.other.ParkingTips.NO_POSITION;
+
 public class ParkingBoy {
 
     private ParkingLot parkingLot;
@@ -16,6 +18,7 @@ public class ParkingBoy {
 
     public Ticket parking(Car car) {
         if (parkingLot.getTickets().size() >= 10) {
+            System.out.print(NO_POSITION);
             return null;
         }
         return new Ticket(car.getCarId(), "T001");

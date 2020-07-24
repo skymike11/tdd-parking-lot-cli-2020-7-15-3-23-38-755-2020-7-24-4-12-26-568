@@ -10,4 +10,6 @@ public class ParkingTips {
 
     public static final String UNRECOGNIZED_TICKET = "Unrecognized parking ticket.";
 
+    public static final String NO_POSITION = "Not enough position.";
+
 }

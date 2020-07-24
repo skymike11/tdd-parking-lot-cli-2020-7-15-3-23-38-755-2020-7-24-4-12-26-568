@@ -5,11 +5,22 @@ import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.other.ParkingTips;
 import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Test;
+import org.junit.Before;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.fest.assertions.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ParkingBoyFacts {
+
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void setup() {
+        System.setOut(new PrintStream(outContent));
+    }
     @Test
     void should_return_ticket_when_parking_car_given_car() {
         //given
@@ -58,8 +69,16 @@ class ParkingBoyFacts {
         //when
         ParkingBoy parkingBoy = new ParkingBoy();
         Ticket result = parkingBoy.parking(car);
+        String message = "";
+        if (result == null) {
+            message = ParkingTips.NO_POSITION;
+        }
+        // TODO : 获取不到控制台打印
+        assertEquals(ParkingTips.NO_POSITION, message);
+    }
 
-        assertNull(result);
+    private String systemOut() {
+        return outContent.toString();
     }
 
     @Test
