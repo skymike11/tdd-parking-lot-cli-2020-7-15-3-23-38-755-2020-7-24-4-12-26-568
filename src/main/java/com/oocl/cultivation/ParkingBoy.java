@@ -21,7 +21,7 @@ public class ParkingBoy {
             return null;
         }
         Ticket ticket = new Ticket(car.getCarId(), "T001");
-        int index = getMinCarsParkingLot();
+        int index = getMaxUsedRateCarsParkingLot();
         ParkingLot parkingLot = parkingLots.get(index);
         parkingLot.getTickets().add(ticket);
         parkingLot.getCars().put(ticket.getToken(), car);
@@ -65,11 +65,11 @@ public class ParkingBoy {
         return parkingLots;
     }
 
-    public int getMinCarsParkingLot () {
-        int min = 0;
+    public int getMaxUsedRateCarsParkingLot () {
+        int max = 0;
         int index = 0;
         for (int i = 0; i < parkingLots.size(); i++) {
-            if (parkingLots.get(i).getTickets().size() <= min) {
+            if ((10 - parkingLots.get(i).getTickets().size()) % 10 > max ) {
                 index = i;
             }
         }
