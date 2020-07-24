@@ -6,7 +6,7 @@ public class ParkingBoy {
         return new Ticket(car.getCarId(), "");
     }
 
-    public Car fetching (String ticket) {
+    public Car fetching (Ticket ticket) {
         return null;
     }
 }

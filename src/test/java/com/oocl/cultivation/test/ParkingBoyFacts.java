@@ -23,15 +23,16 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_car_when_fetching_car_given_car_id() {
+    void should_return_car_when_fetching_car_given_ticket() {
         //given
-        String ticket = "A001";
+        Ticket ticket = new Ticket("A001", "T001");
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy();
         Car car = parkingBoy.fetching(ticket);
 
         //then
+        assertEquals(car.getCarId(), "T001");
     }
 
 
