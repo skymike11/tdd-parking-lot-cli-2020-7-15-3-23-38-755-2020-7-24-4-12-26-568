@@ -10,12 +10,8 @@ import org.junit.Before;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
-import static org.fest.assertions.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
@@ -26,6 +22,7 @@ class ParkingBoyFacts {
     public void setup() {
         System.setOut(new PrintStream(outContent));
     }
+
     @Test
     void should_return_ticket_when_parking_car_given_car() {
         //given
@@ -99,17 +96,18 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_ticket_when_parking_given_1_full_parkinglot_and_1_unfull_parkinglot() {
+    void should_return_equal_length_when_parking_smart_given_2_unfull_parkinglot() {
         //given
-        String carId = "A001";
+        String carId = "A012";
         Car car = new Car(carId);
-        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(init2UnEqualLengthParkinglotTestData());
 
         //when
         Ticket ticket = parkingBoy.parking(car);
 
         //then
-        assertEquals(ticket.getToken(), "T001");
+        assertEquals(parkingBoy.getParkingLots().get(0).getTickets().size(),
+                parkingBoy.getParkingLots().get(1).getTickets().size());
     }
 
     private List<ParkingLot> initTestData() {
@@ -123,6 +121,26 @@ class ParkingBoyFacts {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
         parkingLots.add(new ParkingLot());
+        return parkingLots;
+    }
+
+    private List<ParkingLot> init2UnEqualLengthParkinglotTestData() {
+        List<ParkingLot> parkingLots = new ArrayList<>();
+
+        Map<String, Car> cars = new HashMap<>();
+        List<Ticket> tickets = new ArrayList<>();
+        cars.put("T001", new Car("A001"));
+        cars.put("T002", new Car("A002"));
+
+        tickets.add(new Ticket("A001", "T001"));
+        tickets.add(new Ticket("A002", "T002"));
+
+        parkingLots.add(new ParkingLot(cars, tickets, new HashSet<>()));
+
+        cars.put("T003", new Car("A003"));
+        tickets.add(new Ticket("A003", "T003"));
+        parkingLots.add(new ParkingLot(cars, tickets, new HashSet<>()));
+
         return parkingLots;
     }
 }
