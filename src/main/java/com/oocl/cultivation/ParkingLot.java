@@ -17,6 +17,12 @@ public class ParkingLot {
         initParkingLotData();
     }
 
+    public ParkingLot(Map<String, Car> cars, List<Ticket> tickets, Set<Ticket> historyTickets) {
+        this.cars = cars;
+        this.tickets = tickets;
+        this.historyTickets = historyTickets;
+    }
+
     public Map<String, Car> getCars() {
         return cars;
     }

@@ -3,21 +3,20 @@ package com.oocl.cultivation;
 
 import com.oocl.cultivation.other.ParkingTips;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 import static com.oocl.cultivation.other.ParkingTips.NO_POSITION;
 
 public class ParkingBoy {
 
-    private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLots;
 
-    public ParkingBoy() {
-        this.parkingLot = new ParkingLot();
+    public ParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
     public Ticket parking(Car car) {
-        if (parkingLot.getTickets().size() >= 10) {
+        if (!isExistedPosition()) {
             System.out.print(NO_POSITION);
             return null;
         }
@@ -28,13 +27,19 @@ public class ParkingBoy {
         if (isNullTicket(ticket) || isUsedTicket(ticket)) {
             return ParkingTips.UNRECOGNIZED_TICKET;
         }
-
-        boolean isExistTicket = parkingLot.getTickets().stream().anyMatch(
-                item -> item.getToken().equals(ticket.getToken()));
-        if (!isExistTicket) {
-            return ParkingTips.WRONG_TICKET;
+        boolean isExistTicket = true;
+        ParkingLot selectedParkingLot = null;
+        for (ParkingLot parkingLot : parkingLots) {
+            isExistTicket = parkingLot.getTickets().stream().anyMatch(
+                    item -> item.getToken().equals(ticket.getToken()));
+            if (!isExistTicket) {
+                return ParkingTips.WRONG_TICKET;
+            } else {
+                selectedParkingLot = parkingLot;
+                break;
+            }
         }
-        return parkingLot.getCars().get(ticket.getToken()).getCarId();
+        return selectedParkingLot.getCars().get(ticket.getToken()).getCarId();
     }
 
     private boolean isNullTicket(Ticket ticket) {
@@ -42,6 +47,10 @@ public class ParkingBoy {
     }
 
     private boolean isUsedTicket(Ticket ticket) {
-        return parkingLot.getHistoryTickets().contains(ticket);
+        return parkingLots.stream().anyMatch(parkingLot -> parkingLot.getHistoryTickets().contains(ticket));
+    }
+
+    private boolean isExistedPosition() {
+        return parkingLots.stream().anyMatch(parkingLot -> parkingLot.getTickets().size() < 10);
     }
 }
