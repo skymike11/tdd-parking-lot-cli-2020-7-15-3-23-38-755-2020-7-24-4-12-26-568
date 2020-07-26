@@ -36,7 +36,7 @@ public class ServiceManager {
     }
 
     public Car fetchingService (Ticket ticket) {
-        return serviceStrategy.fetchingWay(this, ticket.getToken());
+        return serviceStrategy.fetchingWay(this, ticket);
     }
 
 }

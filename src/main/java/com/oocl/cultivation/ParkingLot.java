@@ -23,6 +23,10 @@ public class ParkingLot {
         this.historyTickets = historyTickets;
     }
 
+    public Car findCarByToken (String token) {
+        return cars.get(token);
+    }
+
     public Map<String, Car> getCars() {
         return cars;
     }
