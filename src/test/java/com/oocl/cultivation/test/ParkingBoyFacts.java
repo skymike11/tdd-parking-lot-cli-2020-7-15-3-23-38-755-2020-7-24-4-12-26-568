@@ -107,6 +107,18 @@ class ParkingBoyFacts {
                 parkingBoy.getParkingLots().get(1).getTickets().size());
     }
 
+    @Test
+    void should_return_1_member_when_joining_given_1_serviceManager_and_1_parkingboy() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ServiceManager serviceManager = new ServiceManager();
 
+        //when
+        serviceManager.addParkingBoy(parkingBoy);
+        int result = serviceManager.getParkingBoys().size();
+
+        //then
+        assertEquals(1, result);
+    }
 
 }
