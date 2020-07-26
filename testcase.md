@@ -104,3 +104,17 @@
       Join in management 
   **then**
      return true member's number 
+     
+  **given**
+     1 parkingLotManager, 1 parkingBoy id, 1 car, 
+  **when**
+      assign parkingboy to parking
+  **then**
+     return success tip
+     
+  **given**
+     1 parkingLotManager,  1 token, 
+  **when**
+      assign parkingboy to parking
+  **then**
+     return car   
