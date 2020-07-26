@@ -5,6 +5,7 @@ import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ServiceManager;
 import com.oocl.cultivation.Ticket;
 import com.oocl.cultivation.other.Constants;
+import com.oocl.cultivation.other.ParkingTips;
 import com.oocl.cultivation.strategy.DistributionStrategy;
 import com.oocl.cultivation.strategy.ServiceManagerStrategy;
 import org.junit.jupiter.api.Test;
@@ -79,4 +80,20 @@ class ServiceManagerTest {
         //then
         assertEquals("A001", car.getCarId());
     }
+
+    @Test
+    void should_return_unrecognized_ticket_tip_when_manager_fetching_car_given_used_ticket() {
+        //given
+        Ticket ticket = new Ticket("A100", "T100");
+
+        //when
+        ServiceManager serviceManager = new ServiceManager(initTestData(), new ServiceManagerStrategy());
+        String result = serviceManager.fetching(ticket);
+
+        //then
+        assertEquals(ParkingTips.UNRECOGNIZED_TICKET, result);
+    }
+
+
+
 }
