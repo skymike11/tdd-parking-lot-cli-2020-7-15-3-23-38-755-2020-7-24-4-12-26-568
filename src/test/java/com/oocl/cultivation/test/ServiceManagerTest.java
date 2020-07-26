@@ -37,4 +37,18 @@ class ServiceManagerTest {
         //then
         assertEquals("success", result);
     }
+
+    @Test
+    void should_return_car_when_assign_parkingboy_fetching_given_1_ticket_token() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
+        ServiceManager serviceManager = new ServiceManager(new DistributionStrategy());
+        serviceManager.addParkingBoy(parkingBoy);
+
+        String token = "T001";
+        //when
+        Car car = serviceManager.fetchingService(token);
+        //then
+        assertEquals("A001", car.getCarId());
+    }
 }

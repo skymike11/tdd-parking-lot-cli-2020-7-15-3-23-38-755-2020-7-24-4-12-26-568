@@ -20,4 +20,9 @@ public class DistributionStrategy implements ServiceStrategy {
         Ticket ticket = selectedParkingBoy.parking(car);
         return ticket != null ? PARKING_SUCCESS : PARKING_FAILED;
     }
+
+    @Override
+    public Car fetchingWay(ServiceManager serviceManager, String token) {
+        return null;
+    }
 }

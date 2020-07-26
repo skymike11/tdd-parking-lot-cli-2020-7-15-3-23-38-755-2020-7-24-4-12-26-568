@@ -5,4 +5,6 @@ import com.oocl.cultivation.ServiceManager;
 
 public interface ServiceStrategy {
     String parkingWay(Car car, ServiceManager serviceManager, String parkingBoyId);
+
+    Car fetchingWay(ServiceManager serviceManager, String token);
 }

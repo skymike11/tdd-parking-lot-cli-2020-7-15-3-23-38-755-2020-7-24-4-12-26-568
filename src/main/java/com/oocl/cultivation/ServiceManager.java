@@ -35,4 +35,8 @@ public class ServiceManager {
         return serviceStrategy.parkingWay(car, this, parkingBoyId);
     }
 
+    public Car fetchingService (String token) {
+        return serviceStrategy.fetchingWay(this, token);
+    }
+
 }
