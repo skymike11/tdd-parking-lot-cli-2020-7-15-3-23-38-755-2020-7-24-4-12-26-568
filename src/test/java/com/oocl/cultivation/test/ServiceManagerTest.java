@@ -13,7 +13,7 @@ class ServiceManagerTest {
     @Test
     void should_return_1_member_when_joining_given_1_serviceManager_and_1_parkingboy() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
         ServiceManager serviceManager = new ServiceManager();
 
         //when
@@ -27,7 +27,7 @@ class ServiceManagerTest {
     @Test
     void should_return_success_when_assign_parkingboy_parking_given_1_car() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
         ServiceManager serviceManager = new ServiceManager(new DistributionStrategy());
         Car car = new Car("B001");
 

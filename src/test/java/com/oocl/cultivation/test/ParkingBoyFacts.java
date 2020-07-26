@@ -25,7 +25,7 @@ class ParkingBoyFacts {
         //given
         String carId = "A001";
         Car car = new Car(carId);
-        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
 
         //when
         Ticket ticket = parkingBoy.parking(car);
@@ -40,7 +40,7 @@ class ParkingBoyFacts {
         Ticket ticket = new Ticket("A001", "T001");
 
         //when
-        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
         String carId = parkingBoy.fetching(ticket);
 
         //then
@@ -53,7 +53,7 @@ class ParkingBoyFacts {
         Ticket ticket = new Ticket("A100", "T100");
 
         //when
-        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
         String result = parkingBoy.fetching(ticket);
 
         //then
@@ -66,7 +66,7 @@ class ParkingBoyFacts {
         Car car = new Car("A011");
 
         //when
-        ParkingBoy parkingBoy = new ParkingBoy(init2FullParkinglotTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(init2FullParkinglotTestData(), "!");
         Ticket result = parkingBoy.parking(car);
         String message = "";
         if (result == null) {
@@ -86,7 +86,7 @@ class ParkingBoyFacts {
         Ticket ticket = null;
 
         //when
-        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
         String result = parkingBoy.fetching(ticket);
 
         assertEquals(ParkingTips.UNRECOGNIZED_TICKET, result);
@@ -97,7 +97,7 @@ class ParkingBoyFacts {
         //given
         String carId = "A012";
         Car car = new Car(carId);
-        ParkingBoy parkingBoy = new ParkingBoy(init2UnEqualLengthParkinglotTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(init2UnEqualLengthParkinglotTestData(), "1");
 
         //when
         Ticket ticket = parkingBoy.parking(car);
@@ -110,7 +110,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_1_member_when_joining_given_1_serviceManager_and_1_parkingboy() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
         ServiceManager serviceManager = new ServiceManager();
 
         //when

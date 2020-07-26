@@ -9,10 +9,13 @@ import static com.oocl.cultivation.other.ParkingTips.NO_POSITION;
 
 public class ParkingBoy {
 
+    private String id;
+
     private List<ParkingLot> parkingLots;
 
-    public ParkingBoy(List<ParkingLot> parkingLots) {
+    public ParkingBoy(List<ParkingLot> parkingLots, String id) {
         this.parkingLots = parkingLots;
+        this.id = id;
     }
 
     public Ticket parking(Car car) {
@@ -65,14 +68,18 @@ public class ParkingBoy {
         return parkingLots;
     }
 
-    public int getMaxUsedRateCarsParkingLot () {
+    public int getMaxUsedRateCarsParkingLot() {
         int max = 0;
         int index = 0;
         for (int i = 0; i < parkingLots.size(); i++) {
-            if ((10 - parkingLots.get(i).getTickets().size()) % 10 > max ) {
+            if ((10 - parkingLots.get(i).getTickets().size()) % 10 > max) {
                 index = i;
             }
         }
         return index;
+    }
+
+    public String getId() {
+        return id;
     }
 }
