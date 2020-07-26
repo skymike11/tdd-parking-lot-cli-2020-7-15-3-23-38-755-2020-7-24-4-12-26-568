@@ -20,6 +20,7 @@ public class ServiceManager {
 
     public ServiceManager(ServiceStrategy serviceStrategy) {
         this.serviceStrategy = serviceStrategy;
+        parkingBoys = new ArrayList<>();
     }
 
     public void addParkingBoy(ParkingBoy parkingBoy) {

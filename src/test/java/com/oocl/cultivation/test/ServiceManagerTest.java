@@ -25,10 +25,11 @@ class ServiceManagerTest {
     }
 
     @Test
-    void should_return_success_when_assign_parkingboy_parking_given_1_car() {
+    void should_return_success_when_assign_parkingboy_parking_given_1_car_and_target_parkingboy_id() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
         ServiceManager serviceManager = new ServiceManager(new DistributionStrategy());
+        serviceManager.addParkingBoy(parkingBoy);
         Car car = new Car("B001");
 
         //when
