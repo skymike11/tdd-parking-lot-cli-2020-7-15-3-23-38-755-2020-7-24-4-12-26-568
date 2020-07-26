@@ -1,10 +1,14 @@
 package com.oocl.cultivation.strategy;
 
 import com.oocl.cultivation.Car;
+import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ServiceManager;
 import com.oocl.cultivation.Ticket;
 
+import java.util.List;
+
 import static com.oocl.cultivation.other.Constants.PARKING_SUCCESS;
+import static com.oocl.cultivation.other.ParkingTips.UNRECOGNIZED_TICKET;
 
 /**
  * @Auther Sam Li
@@ -17,7 +21,7 @@ public class ServiceManagerStrategy implements ServiceStrategy {
     }
 
     @Override
-    public Car fetchingWay(ServiceManager serviceManager, Ticket token) {
-        return null;
+    public Car fetchingWay(ServiceManager serviceManager, Ticket ticket) {
+        return serviceManager.findCarByToken(ticket.getToken());
     }
 }

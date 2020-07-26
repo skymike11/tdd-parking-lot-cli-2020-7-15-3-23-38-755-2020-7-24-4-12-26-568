@@ -82,4 +82,15 @@ public class ParkingLotAction {
         }
         return index;
     }
+
+    public Car findCarByToken(String token) {
+        Car car = null;
+        for (ParkingLot parkingLot : parkingLots) {
+            car = parkingLot.findCarByToken(token);
+            if (car != null) {
+                return car;
+            }
+        }
+        return null;
+    }
 }

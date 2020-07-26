@@ -68,4 +68,15 @@ class ServiceManagerTest {
         assertEquals(PARKING_SUCCESS, result);
     }
 
+    @Test
+    void should_return_car_when_manager_fetching_car_given_ticket() {
+        //given
+        ServiceManager serviceManager = new ServiceManager(initTestData(), new ServiceManagerStrategy());
+
+        Ticket ticket = new Ticket("A001", "T001");
+        //when
+        Car car = serviceManager.fetchingService(ticket);
+        //then
+        assertEquals("A001", car.getCarId());
+    }
 }
