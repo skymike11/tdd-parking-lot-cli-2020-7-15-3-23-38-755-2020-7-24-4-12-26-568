@@ -1,5 +1,6 @@
 package com.oocl.cultivation.test;
 
+import com.oocl.cultivation.Car;
 import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ServiceManager;
 import org.junit.jupiter.api.Test;
@@ -20,5 +21,18 @@ class ServiceManagerTest {
 
         //then
         assertEquals(1, result);
+    }
+
+    @Test
+    void should_return_1_ticket_when_assign_parkingboy_parking_given_1_car() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy(initTestData());
+        ServiceManager serviceManager = new ServiceManager();
+        Car car = new Car("B001");
+
+        //when
+        String result = serviceManager.assignParkingBoyParking(car);
+        //then
+        assertEquals("success", result);
     }
 }

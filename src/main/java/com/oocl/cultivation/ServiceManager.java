@@ -22,4 +22,8 @@ public class ServiceManager {
     public List<ParkingBoy> getParkingBoys() {
         return parkingBoys;
     }
+
+    public String assignParkingBoyParking (Car car) {
+        return "";
+    }
 }
