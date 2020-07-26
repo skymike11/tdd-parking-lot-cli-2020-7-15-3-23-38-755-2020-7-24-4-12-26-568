@@ -14,11 +14,14 @@ public class ServiceManager {
 
     private ServiceStrategy serviceStrategy;
 
+    private List<ParkingLot> parkingLots;
+
     public ServiceManager() {
         parkingBoys = new ArrayList<>();
     }
 
-    public ServiceManager(ServiceStrategy serviceStrategy) {
+    public ServiceManager(List<ParkingLot> parkingLots, ServiceStrategy serviceStrategy) {
+        this.parkingLots = parkingLots;
         this.serviceStrategy = serviceStrategy;
         parkingBoys = new ArrayList<>();
     }

@@ -117,4 +117,11 @@
   **when**
       assign parkingboy to parking
   **then**
-     return car   
+     return car
+     
+  **given**
+     1 parkingLotManager,  1 car, 
+  **when**
+      manager to parking
+  **then**
+     return ticket   
