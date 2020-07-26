@@ -1,17 +1,14 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
+import com.oocl.cultivation.*;
 import com.oocl.cultivation.other.ParkingTips;
-import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Test;
 import org.junit.Before;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.*;
 
+import static com.oocl.cultivation.other.InitTool.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
@@ -110,37 +107,6 @@ class ParkingBoyFacts {
                 parkingBoy.getParkingLots().get(1).getTickets().size());
     }
 
-    private List<ParkingLot> initTestData() {
-        List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
-        parkingLots.add(new ParkingLot(new HashMap<>(), new ArrayList<>(), new HashSet<>()));
-        return parkingLots;
-    }
 
-    private List<ParkingLot> init2FullParkinglotTestData() {
-        List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
-        parkingLots.add(new ParkingLot());
-        return parkingLots;
-    }
 
-    private List<ParkingLot> init2UnEqualLengthParkinglotTestData() {
-        List<ParkingLot> parkingLots = new ArrayList<>();
-
-        Map<String, Car> cars = new HashMap<>();
-        List<Ticket> tickets = new ArrayList<>();
-        cars.put("T001", new Car("A001"));
-        cars.put("T002", new Car("A002"));
-
-        tickets.add(new Ticket("A001", "T001"));
-        tickets.add(new Ticket("A002", "T002"));
-
-        parkingLots.add(new ParkingLot(cars, tickets, new HashSet<>()));
-
-        cars.put("T003", new Car("A003"));
-        tickets.add(new Ticket("A003", "T003"));
-        parkingLots.add(new ParkingLot(cars, tickets, new HashSet<>()));
-
-        return parkingLots;
-    }
 }

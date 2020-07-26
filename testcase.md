@@ -96,3 +96,11 @@
       parking boy parking
   **then**
      return ticket 
+
+  #### Story6
+  **given**
+     1 parkingLotManager, 1 parkingBoy, 
+  **when**
+      Join in management 
+  **then**
+     return true member's number 
