@@ -1,7 +1,8 @@
 package com.oocl.cultivation;
 
+import com.oocl.cultivation.strategy.ServiceStrategy;
+
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -11,11 +12,17 @@ import java.util.List;
 public class ServiceManager {
     private List<ParkingBoy> parkingBoys;
 
+    private ServiceStrategy serviceStrategy;
+
     public ServiceManager() {
         parkingBoys = new ArrayList<>();
     }
 
-    public void addParkingBoy (ParkingBoy parkingBoy) {
+    public ServiceManager(ServiceStrategy serviceStrategy) {
+        this.serviceStrategy = serviceStrategy;
+    }
+
+    public void addParkingBoy(ParkingBoy parkingBoy) {
         this.parkingBoys.add(parkingBoy);
     }
 
@@ -23,7 +30,8 @@ public class ServiceManager {
         return parkingBoys;
     }
 
-    public String assignParkingBoyParking (Car car) {
-        return "";
+    public String parkingService(Car car) {
+        return serviceStrategy.parkingWay(car, this);
     }
+
 }
