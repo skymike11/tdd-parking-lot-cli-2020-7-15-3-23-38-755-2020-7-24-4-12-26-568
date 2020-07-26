@@ -30,8 +30,8 @@ public class ServiceManager {
         return parkingBoys;
     }
 
-    public String parkingService(Car car) {
-        return serviceStrategy.parkingWay(car, this);
+    public String parkingService(Car car, String parkingBoyId) {
+        return serviceStrategy.parkingWay(car, this, parkingBoyId);
     }
 
 }

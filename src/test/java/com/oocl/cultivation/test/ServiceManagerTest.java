@@ -32,7 +32,7 @@ class ServiceManagerTest {
         Car car = new Car("B001");
 
         //when
-        String result = serviceManager.parkingService(car);
+        String result = serviceManager.parkingService(car, parkingBoy.getId());
         //then
         assertEquals("success", result);
     }

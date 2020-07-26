@@ -10,7 +10,7 @@ import com.oocl.cultivation.ServiceManager;
 public class DistributionStrategy implements ServiceStrategy {
 
     @Override
-    public String parkingWay(Car car, ServiceManager serviceManager) {
+    public String parkingWay(Car car, ServiceManager serviceManager, String parkingBoyId) {
         return "success";
     }
 }
