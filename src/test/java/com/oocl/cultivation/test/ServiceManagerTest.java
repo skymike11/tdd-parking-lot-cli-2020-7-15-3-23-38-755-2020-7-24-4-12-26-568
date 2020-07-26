@@ -3,6 +3,7 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ServiceManager;
+import com.oocl.cultivation.Ticket;
 import com.oocl.cultivation.strategy.DistributionStrategy;
 import org.junit.jupiter.api.Test;
 
@@ -39,15 +40,15 @@ class ServiceManagerTest {
     }
 
     @Test
-    void should_return_car_when_assign_parkingboy_fetching_given_1_ticket_token() {
+    void should_return_car_when_assign_parkingboy_fetching_given_1_ticket() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(initTestData(), "1");
         ServiceManager serviceManager = new ServiceManager(new DistributionStrategy());
         serviceManager.addParkingBoy(parkingBoy);
 
-        String token = "T001";
+        Ticket ticket = new Ticket("A001", "T001");
         //when
-        Car car = serviceManager.fetchingService(token);
+        Car car = serviceManager.fetchingService(ticket);
         //then
         assertEquals("A001", car.getCarId());
     }
