@@ -9,19 +9,17 @@ import java.util.List;
  * @Auther Sam Li
  * @Date 2020-07-26
  */
-public class ServiceManager {
+public class ServiceManager extends ParkingLotAction {
     private List<ParkingBoy> parkingBoys;
 
     private ServiceStrategy serviceStrategy;
-
-    private List<ParkingLot> parkingLots;
 
     public ServiceManager() {
         parkingBoys = new ArrayList<>();
     }
 
     public ServiceManager(List<ParkingLot> parkingLots, ServiceStrategy serviceStrategy) {
-        this.parkingLots = parkingLots;
+        super(parkingLots);
         this.serviceStrategy = serviceStrategy;
         parkingBoys = new ArrayList<>();
     }
