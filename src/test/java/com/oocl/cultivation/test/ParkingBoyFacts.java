@@ -67,6 +67,7 @@ class ParkingBoyFacts {
 
         //when
         ParkingBoy parkingBoy = new ParkingBoy(init2FullParkinglotTestData(), "!");
+        ParkingLot canUsedParkingLot = parkingBoy.findWillBeParkedParkingLot();
         Ticket result = parkingBoy.parking(car);
         String message = "";
         if (result == null) {

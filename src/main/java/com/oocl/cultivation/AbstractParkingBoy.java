@@ -22,22 +22,23 @@ public abstract class AbstractParkingBoy {
         this.parkingLots = parkingLots;
     }
 
-    public Ticket parking(Car car) {
-        if (!isExistedPosition()) {
-            System.out.print(NO_POSITION);
-            return null;
-        }
-        Ticket ticket = new Ticket(car.getCarId(), "T001");
-        int index = getMaxUsedRateCarsParkingLot();
-        ParkingLot parkingLot = parkingLots.get(index);
-        parkingLot.getTickets().add(ticket);
-        parkingLot.getCars().put(ticket.getToken(), car);
+    public Ticket parking(Car car) throws NoAvailableParkingLotException {
 
-        parkingLots.set(index, parkingLot);
-        return ticket;
+//        if (!isExistedPosition()) {
+//            System.out.print(NO_POSITION);
+//            return null;
+//        }
+//        Ticket ticket = new Ticket(car.getCarId(), "T001");
+//        int index = getMaxUsedRateCarsParkingLot();
+//        ParkingLot parkingLot = parkingLots.get(index);
+//        parkingLot.getTickets().add(ticket);
+//        parkingLot.getCars().put(ticket.getToken(), car);
+//
+//        parkingLots.set(index, parkingLot);
+        return new Ticket("A001", "T001");
     }
 
-    protected abstract ParkingLot findWillBeParkedParkingLot();
+    public abstract ParkingLot findWillBeParkedParkingLot();
 
     public String fetching(Ticket ticket) {
         if (isNullTicket(ticket) || isUsedTicket(ticket)) {

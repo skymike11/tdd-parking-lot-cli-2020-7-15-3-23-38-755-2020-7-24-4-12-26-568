@@ -19,7 +19,7 @@ public class ServiceManager extends AbstractParkingBoy {
     }
 
     @Override
-    protected ParkingLot findWillBeParkedParkingLot() {
+    public ParkingLot findWillBeParkedParkingLot() {
         return null;
     }
 

@@ -83,4 +83,8 @@ public class InitTool {
         historyTickets.add(new Ticket("A100", "T100"));
         return historyTickets;
     }
+
+    public static String createTokenByCar (Car car) {
+        return String.format("%s%s", "T", car.getCarId());
+    }
 }

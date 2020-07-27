@@ -14,8 +14,11 @@ public class ParkingBoy extends AbstractParkingBoy {
     }
 
     @Override
-    protected ParkingLot findWillBeParkedParkingLot() {
-        return null;
+    public ParkingLot findWillBeParkedParkingLot() throws NoAvailableParkingLotException {
+        return parkingLots.stream()
+                .filter(parkingLot -> !parkingLot.isFull())
+                .findFirst()
+                .orElseThrow(NoAvailableParkingLotException::new);
     }
 
     public Car findCarByToken(String token) {

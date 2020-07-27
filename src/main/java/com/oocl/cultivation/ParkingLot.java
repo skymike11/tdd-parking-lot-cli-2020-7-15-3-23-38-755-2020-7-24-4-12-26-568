@@ -2,6 +2,8 @@ package com.oocl.cultivation;
 
 import java.util.*;
 
+import static com.oocl.cultivation.other.InitTool.createTokenByCar;
+
 public class ParkingLot {
 
     private Map<String, Car> cars;
@@ -22,7 +24,23 @@ public class ParkingLot {
         this.historyTickets = historyTickets;
     }
 
-    public Car findCarByToken (String token) {
+    public Ticket parkingCar(Car car) {
+        Ticket ticket = new Ticket(car.getCarId(), createTokenByCar(car));
+        tickets.add(ticket);
+        cars.put(ticket.getToken(), car);
+        return ticket;
+    }
+
+    public Car fetchCar (Ticket ticket) {
+        return cars.get(ticket.getToken());
+
+    }
+
+    public boolean isFull () {
+        return cars.size() == 10;
+    }
+
+    public Car findCarByToken(String token) {
         return cars.get(token);
     }
 
@@ -38,11 +56,4 @@ public class ParkingLot {
         return historyTickets;
     }
 
-    public void setCars(Map<String, Car> cars) {
-        this.cars = cars;
-    }
-
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
 }
