@@ -4,13 +4,18 @@ package com.oocl.cultivation;
 import java.util.*;
 
 
-public class ParkingBoy extends ParkingLotAction {
+public class ParkingBoy extends AbstractParkingBoy {
 
     private String id;
 
     public ParkingBoy(List<ParkingLot> parkingLots, String id) {
         super(parkingLots);
         this.id = id;
+    }
+
+    @Override
+    protected ParkingLot findWillBeParkedParkingLot() {
+        return null;
     }
 
     public Car findCarByToken(String token) {

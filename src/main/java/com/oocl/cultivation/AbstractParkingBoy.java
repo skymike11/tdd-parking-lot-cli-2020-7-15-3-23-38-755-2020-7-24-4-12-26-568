@@ -10,15 +10,15 @@ import static com.oocl.cultivation.other.ParkingTips.NO_POSITION;
  * @Auther Sam Li
  * @Date 2020-07-26
  */
-public class ParkingLotAction {
+public abstract class AbstractParkingBoy {
 
     public List<ParkingLot> parkingLots;
 
 
-    public ParkingLotAction() {
+    public AbstractParkingBoy() {
     }
 
-    public ParkingLotAction(List<ParkingLot> parkingLots) {
+    public AbstractParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
 
@@ -36,6 +36,8 @@ public class ParkingLotAction {
         parkingLots.set(index, parkingLot);
         return ticket;
     }
+
+    protected abstract ParkingLot findWillBeParkedParkingLot();
 
     public String fetching(Ticket ticket) {
         if (isNullTicket(ticket) || isUsedTicket(ticket)) {

@@ -9,13 +9,18 @@ import java.util.List;
  * @Auther Sam Li
  * @Date 2020-07-26
  */
-public class ServiceManager extends ParkingLotAction {
+public class ServiceManager extends AbstractParkingBoy {
     private List<ParkingBoy> parkingBoys;
 
     private ServiceStrategy serviceStrategy;
 
     public ServiceManager() {
         parkingBoys = new ArrayList<>();
+    }
+
+    @Override
+    protected ParkingLot findWillBeParkedParkingLot() {
+        return null;
     }
 
     public ServiceManager(List<ParkingLot> parkingLots, ServiceStrategy serviceStrategy) {
